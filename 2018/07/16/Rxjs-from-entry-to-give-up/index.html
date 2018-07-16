@@ -177,7 +177,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hello-world"><span class="toc-text">hello world</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hello-world"><span class="toc-text">hello world</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正确理解官方文档的示例"><span class="toc-text">正确理解官方文档的示例</span></a></li></ol>
     </div>
   </div>
 
@@ -186,7 +186,7 @@
       
         <p>RxJS 是实现响应式编程的库，因为官方文档不够清晰以及中文资料欠缺，再加上响应式编程本身的难度，导致学习曲线非常的陡峭。这篇文章稍微用简单和常见的 web 开发实例介绍下 RxJS 基础知识。</p>
 <a id="more"></a>
-<h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h2><p>学习一个新库的第一手资料就是<a href="https://rxjs-dev.firebaseapp.com/" target="_blank" rel="noopener">官方文档</a>，但是当我粗略看完官方文档后，却连 hello world 都无法实现。下面我来回溯一下这个糟糕的历程：</p>
+<h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h2><p>学习一个新库的第一手资料就是<a href="https://rxjs-dev.firebaseapp.com/" target="_blank" rel="noopener">官方文档</a>，但是当我查看完官方文档后，却连 hello world 都无法实现。下面我来回溯一下这个糟糕的历程：</p>
 <ol>
 <li><p>新建项目：<code>npm init</code></p>
 </li>
@@ -207,14 +207,19 @@
 <li><p>添加 npm script：<code>&quot;dev&quot;: &quot;parcel index.html&quot;</code></p>
 </li>
 <li><p>运行：<code>yarn dev</code></p>
-<p><img src="http://static.ohcat.xyz/xnip2018-07-16-08-07-16-jpg(2018-07-16T08:07:55+08:00" alt="">.jpg)</p>
+<p><img src="http://static.ohcat.xyz/xnip2018-07-16-08-07-16-jpg%282018-07-16T08:07:55+08:00%29.jpg" alt=""></p>
 </li>
 <li><p>浏览器查看(打开调试工具):</p>
-<p><img src="http://static.ohcat.xyz/xnip2018-07-16-08-08-59-jpg(2018-07-16T08:09:13+08:00" alt="">.jpg)</p>
+<p><img src="http://static.ohcat.xyz/xnip2018-07-16-08-08-59-jpg%282018-07-16T08:09:13+08:00%29.jpg" alt=""></p>
 </li>
 <li><p>放弃！</p>
 </li>
 </ol>
+<h2 id="正确理解官方文档的示例"><a href="#正确理解官方文档的示例" class="headerlink" title="正确理解官方文档的示例"></a>正确理解官方文档的示例</h2><p>一句话解释：RxJS 在 npm 的包已经升级到 v6 , 而官方的示例代码却还是基于 v5 的。而这个版本升级变动又特别大，所以正确理解官方文档的第一步是从这部份<a href="https://rxjs-dev.firebaseapp.com/guide/v6/migration" target="_blank" rel="noopener">升级指南</a>开始。</p>
+<p>那么我来修正下上面已经错误的示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">of</span> &#125; <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">of</span>$ = <span class="keyword">of</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">of</span>$.subscribe(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>运行后查看浏览器：</p>
+<p><img src="http://static.ohcat.xyz/xnip2018-07-16-08-18-02-jpg%282018-07-16T08:18:13+08:00%29.jpg" alt=""></p>
 
       
     </div>
