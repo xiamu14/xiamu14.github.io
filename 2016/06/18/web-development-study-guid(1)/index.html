@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="WEB 前端学习指南（上）"/>
+
+
+
+
+  <meta name="keywords" content="web, html, js, css, grunt, php, 夏木的专栏" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夏木的专栏">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://blog.ohcat.xyz/2016/06/18/web-development-study-guid(1)/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> WEB 前端学习指南（上） - 夏木的专栏 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">夏木的专栏</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">夏木的专栏</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          WEB 前端学习指南（上）
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-06-18
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#三驾马车：HTML5-CSS3-JavaScript"><span class="toc-text">三驾马车：HTML5 + CSS3 + JavaScript</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#入门（html-css-js）"><span class="toc-text">入门（html+css+js）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5"><span class="toc-text">HTML5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3"><span class="toc-text">CSS3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#—-本节的扩展-—"><span class="toc-text">— 本节的扩展 —</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#（1）三个有趣的前端新应用：Hybrid-app，微信内应用，H5"><span class="toc-text">（1）三个有趣的前端新应用：Hybrid app，微信内应用，H5</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）ES6，Node-js，MongoDB，PHP，SQL……"><span class="toc-text">（2）ES6，Node.js，MongoDB，PHP，SQL……</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程和规范"><span class="toc-text">流程和规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#—-本节的扩展-—-1"><span class="toc-text">— 本节的扩展 —</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PS-和-AI-的熟练使用，切图的规范，字体、svg-和-iconfont-的应用"><span class="toc-text">PS 和 AI 的熟练使用，切图的规范，字体、svg 和 iconfont 的应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BAE-PHP-和-SQL-的学习使用"><span class="toc-text">BAE,PHP 和 SQL 的学习使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编码规范"><span class="toc-text">编码规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网站的优化打包发布"><span class="toc-text">网站的优化打包发布</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>我从事前端开发已经一年零六个月。从 2015 年末至今，前端开发有很多变化，这其中有我正在经历的，也有我尚未感受到的。而前端开发中的我所知道的各类知识，我想以自己绵薄之力，结合自身开发实践稍作梳理，让别人看看我踩过的坑。<br><a id="more"></a></p>
+<p>这篇文章是写给 WEB 前端学习者，尤其是初入门的 WEB 前端开发。我写出了我自己所看到的前端开发世界里的色彩缤纷，也整理出了各个阶段能够参考学习的网站和资料。</p>
+<h4 id="三驾马车：HTML5-CSS3-JavaScript"><a href="#三驾马车：HTML5-CSS3-JavaScript" class="headerlink" title="三驾马车：HTML5 + CSS3 + JavaScript"></a>三驾马车：HTML5 + CSS3 + JavaScript</h4><p><img src="http://upload-images.jianshu.io/upload_images/225644-7d6e116ff8afed37.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="HTML5 + CSS3 + JavaScript"></p>
+<p><a href="https://www.w3.org/html/ig/zh/wiki/HTML5" target="_blank" rel="noopener">HTML5</a> 是 HTML 和 XHTML 的新版本。 在 HTML5 草案 的规范中定义了可以用 HTML 和 XML 编写的单一的语言，意在解决在之前 HTML 的迭代中发现的一些问题并满足 web 应用的需求，这是以前 HTML 没有充分覆盖到的领域。这意味着 HTML5 的很多新特性是为了适应现代浏览器而增加的，这其中包括更加语义化的标签，视音频播放的 API，本地存储功能的 API 等。详情参看 <a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">W3school</a>。</p>
+<p>CSS3 是 CSS 技术的升级版，目前最新版本是 CSS2.1，为 W3C 推荐标准，建议阅读 <a href="http://www.ayqy.net/blog/css2-1%E8%A7%84%E8%8C%83%E4%B8%AD%E6%96%87%E7%89%88/" target="_blank" rel="noopener">该规范的中文版</a>，这篇翻译来自 @黯羽轻扬。当然，目前 CSS3 已被大部分现代浏览器支持，而下一代 CSS4 还在开发中（有关 CSS3 开发相关请参考 <a href="https://www.w3.org/Style/CSS/）。" target="_blank" rel="noopener">https://www.w3.org/Style/CSS/）。</a></p>
+<p><a href="http://wiki.jikexueyuan.com/project/es6/intro.html" target="_blank" rel="noopener">ECMAScript 6 (简称 ES6)</a> 是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布。伴随着 Node.js 的火热，JavaScript 已经不仅仅是浏览器里面的脚本。同时，越来越多的库和框架：React(a javascript library for building user interfaces)、Flux(application architecture for buiding user interfaces)、Angular(Superheroic JavaScript MVW Framework)、Babel、Mocha…… 让前端开发更加简单。</p>
+<h2 id="入门（html-css-js）"><a href="#入门（html-css-js）" class="headerlink" title="入门（html+css+js）"></a>入门（html+css+js）</h2><h4 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h4><p>我仍然是从前端开发的三驾马车开始讲入门的知识。毫无疑问，前端入门最快的路是打开电脑上的文本编辑工具，写下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后命名为 ‘name.html’，接着在浏览器中打开这个文件。当看到浏览器中显示出 “Hello World!” 时，一切 OK！这个桥段实在是俗了点，不过我就是从这里开始踏上前端之路的。</p>
+<p>接下来，我要选择一个编辑器或者 IDE ，透露最终答案：我目前使用 Win10 系统，编辑器使用 sublime text3 和 Atom。对的，我使用两个编辑器，并且最终没有选择任何 IDE。但在此，我建议刚入门的开发者去尝试 WebStrom 这样功能齐全的 IDE，可以感受到代码高亮，代码自动补全，集成本地服务器测试等功能。然后，开始尝试在 sublime text3 和 Atom 中自己安装能实现 IDE 里一切所需功能的插件，以及 IDE 不具备的功能。没错，这两个编辑器完全可以定制为一个 IDE，并且更专注于编程这一件事，而不管是 web 开发者，还是 java 开发者……。当然，前提是作为一个喜欢自己折腾的开发者。</p>
+<p>选择好一个编辑工具，如同选择一把趁手的兵器。接下来是开始学习 html5，css3，js 的时候了。这里仍然是一个很俗的桥段，打开这个网站：<a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">W3school</a>。开始把这个网站里的所有代码（html5,css3,js 按照这个顺序）抄写到自己的编辑器里，并且保存，然后在浏览里查看效果。如果感觉这样太枯燥了，那么可以到下面这两个视频网站去学习：<a href="http://www.jikexueyuan.com/" target="_blank" rel="noopener">极客学院</a> 和 <a href="http://www.imooc.com/" target="_blank" rel="noopener">慕课网</a>。下面是我推荐的几个系列视频学习课程：</p>
+<ul>
+<li><p><a href="http://www.jikexueyuan.com/path/html5/" target="_blank" rel="noopener">《Html5 从入门到精通》</a> 这里包含的知识已经远远超过了入门阶段，而且也对知识体系作了很好的整理。但我依然建议入门者能够从 W3school 开始一点一点写代码，而不是在视频的讲解里遨游。因为视频学习往往容易让人忽视一些基础的知识，这对于入门者而言并不是好事。</p>
+</li>
+<li><p><a href="http://www.imooc.com/course/list?c=html5&amp;is_easy=2" target="_blank" rel="noopener">《前端开发》</a> 这里的知识也同样超过了入门阶段所需知识。但我仍然建议入门者去看看，但不要急于动手去写其中的代码，这里的内容可以让你看到前端开发是多么有趣，以至于忘记照着 W3school 里的枯燥代码写下 ‘hello,world’ 这类的东西是多么无趣。然而， 在能够理解视频里那些酷炫好玩的东西之前，必须忍受 W3school 里呆板的代码。所以，现在先收藏这个网站，并且随时学习自己力所能及的内容。</p>
+</li>
+</ul>
+<h4 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h4><p>上一部分，已经涵盖了入门 html5 + css3 + javascript 所需要的工具和参考。但是，这里依然单独用一章节来讲 CSS3。因为，如果只是学完上面提及的内容，也许你会认为 css3 能做的事情仅此而已。但是，我可以郑重的提醒你，css3 可以实现所有你能够想象的样式。当结合 js，几乎所有的动画，交互都可以实现。<br>没错，这很夸张，但是我现在却深信不疑。无论是否看完 W3school 里 CSS3 的内容，下面这个视频集合的内容都有可能让你重新认识 CSS3 ——<a href="http://www.imooc.com/learn/588" target="_blank" rel="noopener">《重拾 CSS 的乐趣》</a> 。请务必记住这个视频的作者，@CSS 魔法。因为他翻译的《css sprites》也是我重点推荐的参考书籍。</p>
+<h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><p>当然，在看完 W3school 上 JS 的知识后，就应该看 jQuery 的知识了，仍然是在 W3school 上，同时也应该多查看 jQuery 官网。如果精力充足的话，可以去看看 <a href="http://www.bootcss.com/" target="_blank" rel="noopener">Bootstrap</a>。因为单凭 jQuery，Bootstrap 这两个东西已足够实现一个界面优美，功能完善的网站。</p>
+<h4 id="—-本节的扩展-—"><a href="#—-本节的扩展-—" class="headerlink" title="— 本节的扩展 —"></a>— 本节的扩展 —</h4><h6 id="（1）三个有趣的前端新应用：Hybrid-app，微信内应用，H5"><a href="#（1）三个有趣的前端新应用：Hybrid-app，微信内应用，H5" class="headerlink" title="（1）三个有趣的前端新应用：Hybrid app，微信内应用，H5"></a>（1）三个有趣的前端新应用：Hybrid app，微信内应用，H5</h6><p>从迈入移动端时代，前端技术也有了新的应用。这里主要扩展三个我认为有趣的前端的应用。</p>
+<ul>
+<li><p>Hybrid app：<br>一种兼顾 Web 和 Native 的一种开发模式。简单的理解就是在 app 里嵌入一个浏览器，然后访问前端开发的适配了移动端的网页。Hybrid app 要实现的是 app 与网页的数据交互。这种开发模式很好玩，让前端也能插手 app 开发。同时也让 app 开发者有兴趣接触前端技术。彼此间可以愉快的相爱相杀了……</p>
+</li>
+<li><p>微信内应用：<br>这个目前应该是属于国内专属的应用了。相当于 Hybrid app 模式里面已经实现了 app 的浏览器，定义好了使用微信功能的各类接口，只要开发适配微信的网页应用即可。只要掌握前端开发的基础知识，熟悉移动端开发适配的细节，然后根据微信提供的开发文档，就可以在微信 app 的开发中游刃而若有余地了。</p>
+</li>
+<li><p>H5:<br>这个不是 HTML5，不是！下面我会叫它 H5 专题页。首先看看它应该是什么一种形式（微信扫描二维码）：<br><img src="http://upload-images.jianshu.io/upload_images/225644-45e80f3d283f39f9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="H5 应用二维码"><br>H5 专题页也是伴随微信火起来的。H5 专题页，可以简单的认为就是在微信或移动端的 PPT。在国内，做前端开发的不会做 H5 专题页是不行的！所以，在入门知识都学完以后，务必尝试开发一个或多个 H5 专题页来丰富简历。</p>
+</li>
+</ul>
+<p>最后再补充一个好玩的东西：<a href="http://electron.atom.io/" target="_blank" rel="noopener">Electron</a>。Electron 可以让你使用纯 JavaScript 调用丰富的原生 API 来创造桌面应用。</p>
+<h4 id="（2）ES6，Node-js，MongoDB，PHP，SQL……"><a href="#（2）ES6，Node-js，MongoDB，PHP，SQL……" class="headerlink" title="（2）ES6，Node.js，MongoDB，PHP，SQL……"></a>（2）ES6，Node.js，MongoDB，PHP，SQL……</h4><ul>
+<li><p>ES6 : 接下来介绍的这些可都是很厉害的东西，作为入门者而言，没有必要马上去懂这些知识。但是，在前端进阶的路上，这里面的某些或全部都可能是要熟练掌握使用的。ES6 自不必说，JavaScript 语言的下一代标准，但我认为你没有必要一开始就去纠结了解 ES6 与 JavaScript 的区别，甚至于你完全不知道 ES6 是怎么回事，也完全不影响你作为一个合格的前端开发人员。但是，我们是有目标，有理想的。对于 JavaScript 这个开始在服务器，移动 app 端都展露头角的核武器，怎么能不去了解它的核心知识 ECMAScript？至于学习的时机，我认为是当你不再满足在浏览器上做东西，不再满足使用别人开发的库，框架的，当你不再满足只做一个前端，企图成为一名全栈工程师的时候，那么学习 ECMAScript 会是实现这一切的开始。</p>
+</li>
+<li><p>Node.js : “Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript Engine.”——这句话来自 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js 官网</a>。意思是 Node.js 是构建于 Chrome 的 V8 JavaScript 引擎（）基础上的 JavaScript 运行环境。也就是说，它使得 JavaScript 这门程序语言可以脱离浏览器，而在服务器环境下运行。它的学习时机或许比 ES6 更早，因为我已经尝试用它在云主机上搭建 web 服务器。前后端使用同一种编程语言，这的确是一件另人兴奋的事情。</p>
+</li>
+<li><p>MongoDB : MongoDB,NoSQL 数据库的一种，由于我使用的不多，接触的也不是很深，这方面暂时不能提供很有价值的信息与资料。容我以后再来补上这一块的内容……</p>
+</li>
+<li>PHP,SQL : 我想在入门甚至于入门以后很长一段时间，凭借在 W3school 上了解到的关于它们的知识，已经足够应付开发任务。但我依然希望能够深入的学习它们，共勉之……</li>
+</ul>
+<p>单就入门阶段的扩展而言，我想这些知识已经现在已经足够了。但是，前端的发展很多并不是我能够想象得到的，所有关注一些公众号，微博，github，以及各种前端技术的官方网站，时刻把握动向，是非常有必要的。虽然，经验丰富的开发人员会认为新的东西往往带有风险，只有成熟，稳定的技术才能实现价值。但是，现在前端的发展太过迅猛，每一个技术都在争夺开发者。前端开发框架中火热的有 Angular、React、Vue（国内阿里团队推出的一个框架），前端构建工具中有 Grunt,Gulp,browserify,webpack，前端测试工具有 mocha,jasmine，简直如同海贼王里的大航海时代。所以，对于火热的前端，我的态度是积极投身其中，研究各种技术，进而领悟它们所展示的思路和想象，而不是等到一切尘埃落定再来选择剩下来的技术。</p>
+<h2 id="流程和规范"><a href="#流程和规范" class="headerlink" title="流程和规范"></a>流程和规范</h2><p>网站开发不是一个人的战斗，即使是全栈工程师，也不应该一个人承担所有的任务。作为前端工程师，既要与视觉设计师、交互设计师对接设计稿、交互稿，又要与后端工程师对接数据模型。</p>
+<p>“图难于易，为大于细”——就细节而论，与每一个角色的交流沟通过程都可以细致的整理出文章来单独讲解。因此，这里只扩展前端需要了解的知识。</p>
+<h4 id="—-本节的扩展-—-1"><a href="#—-本节的扩展-—-1" class="headerlink" title="— 本节的扩展 —"></a>— 本节的扩展 —</h4><h4 id="PS-和-AI-的熟练使用，切图的规范，字体、svg-和-iconfont-的应用"><a href="#PS-和-AI-的熟练使用，切图的规范，字体、svg-和-iconfont-的应用" class="headerlink" title="PS 和 AI 的熟练使用，切图的规范，字体、svg 和 iconfont 的应用"></a>PS 和 AI 的熟练使用，切图的规范，字体、svg 和 iconfont 的应用</h4><p>PS 和 AI 自不必说。 MAC 上的专属设计神器 Sketch，如果有 MAC 设备建议也了解下。这里我只能提供一套不错的 PS 学习视频：<a href="http://www.uigreat.com/course/explore/uid?filter%5Btype%5D=all&amp;filter%5Bprice%5D=all&amp;filter%5BcurrentLevelId%5D=all&amp;orderBy=latest" target="_blank" rel="noopener">PS 入门教程</a>。</p>
+<p>至于 AI，由于最近我觉得网站矢量化是一个不错的方向，所以会更深入的学习 AI，之后单独整理一篇讲网站矢量化的文章，里面再详细讲解 PS 和 AI 制作矢量图。</p>
+<p>切图的规范，是需要设计师与前端一起商议出来。前端最好不要等到设计师自顾自的导出切图和标注图，毕竟大多数设计师不懂前端开发的逻辑。很多情况下，前端开发需要写相对距离，然而标注图上只有绝对距离，又或者相对距离的对象又完全不对，等等。总之，作为前端要清楚明白自己需要什么样的标注图，需要什么样的切图。我认为明白这两点最好的方式是自己多尝试标注、切图，找到符合自己开发逻辑的那套规范。当然，后续我也会把自己用的那一套规范整理出一篇文章。</p>
+<p>字体的使用上，不可避免设计师会使用一些具有设计感的字体。对此，我的建议是两点：</p>
+<ol>
+<li><p>如果用到的特殊字体只有少部分，不是全站都要使用的，我建议是做成 SVG 图导入网站。单独提一点小 tip，在高分辨率设备逐渐普及的现在，能够做成 SVG 的图，千万不要用像素图。（这点我会在网站矢量化的研究在单独讲解）</p>
+</li>
+<li><p>如果是全站都要用到某些字体，比如媒体网站或者新闻阅读类网站，那么建议使 <a href="http://font-spider.org/" target="_blank" rel="noopener">字蛛</a> 字蛛通过分析本地 CSS 与 HTML 文件获取 WebFont 中没有使用的字符，并将这些字符数据从字体中删除以实现压缩，同时生成跨浏览器使用的格式。<br>这里又提到 iconfont 的应用了解，但是我也发现 iconfont 存在用户体验的问题，在一些大型网站上如 github 已经直接使用 SVG 替换 iconfont。当然作为了解 iconfont 的使用，我会在那篇网站矢量化的文章中介绍。</p>
+</li>
+</ol>
+<h4 id="BAE-PHP-和-SQL-的学习使用"><a href="#BAE-PHP-和-SQL-的学习使用" class="headerlink" title="BAE,PHP 和 SQL 的学习使用"></a>BAE,PHP 和 SQL 的学习使用</h4><p>百度应用引擎（Baidu App Engine，简称 BAE）是 PaaS 平台，提供弹性、便捷、一站式的应用部署服务，支持 PHP/Java/Node.js/Python 等各种应用。只需上传应用代码，BAE 自动完成运行环境配置、应用部署、资源监控、日志收集等工作。简单的说就是把网站代码传到 BAE 分配的空间，就可以访问网站了，完全不需要自己搭建后端服务器环境，不需要自己手动配置。这是前端开发者搭建自己的网站或博客所需要的。因为我以前常用的是 BAE, 其实新浪有 SAE，阿里，腾讯也有相同的 Paas 平台。现在，我是自己在 VPS 主机上搭建服务器来运行自己的网站。至于博客，可以上一篇文章里看到介绍了 Github Page + Hexo 组合搭建博客的详细过程。</p>
+<p>PHP 和 SQL 的学习，我还是认为学完 W3school 里的内容就够用了，但是能够越熟练越深入越好，这里再提供一些学习视频，仍然来自慕课网：<a href="http://www.imooc.com/course/list?c=be" target="_blank" rel="noopener">《后端开发》</a>。</p>
+<p>实际上，按照现在前后端分离的开发模式来看，前端与后端最重要的沟通交流的是数据模型。一般，使用的数据格式是 XML 或 JSON ，作为前端最好根据后端设计的数据模型来设计自己的代码。因为我是自学的前端技术，在软件开发层面的知识相对薄弱，对于数据结构了解更是浅薄，所以，只要合作的后端不是很弱的那种，我一般是按照他们给出的数据模型来开发。</p>
+<h4 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h4><p>记住这句话 “当你开始工作时，你不是在给你自己写代码，而是为后来人写代码”。大多数时候，我们面对的都是写好的代码。当以一种可维护的方式来写代码，可以让你和协作者很容易知道上段代码写到什么地方什么程度。同时，当发现以同一种方式来编写代码时，即使过很长一段时间再回头 review，也将会是一件愉快的事情。“Java 语言编码规范” 是当前很流行的关于编码规范的文档之一，它指出了编码规范如此重要的几个原因：</p>
+<ul>
+<li><p>软件生命周期中 80% 的成本消耗在了维护上</p>
+</li>
+<li><p>几乎所有的软件维护都不是它的最初作者</p>
+</li>
+<li><p>编码规范提高了软件的可读性，它让工程师能够快速且充分地理解新的代码</p>
+</li>
+<li><p>如果你将源码作为产品来发布，你需要确保它是可完整打包的，且像你创建的其他产品一样整洁。</p>
+</li>
+</ul>
+<p>那么，当你意识到整洁、统一的编码规范的重要性的时候，应该如果形成自己的编码规范了。在这个问题上，我已经不再建议自己去实践尝试来得出答案。虽然实践大多数时候是得出答案的好办法，但是，对于编码规范还是直接拿来主义，把优秀的规范拿来就用：</p>
+<ul>
+<li><p><a href="http://coderlmn.github.io/code-standards/" target="_blank" rel="noopener">前端代码规范及实践</a> ——出自 isobar 公司的创意技术部（前端工程）</p>
+</li>
+<li><p><a href="http://codeguide.bootcss.com/" target="_blank" rel="noopener">编码规范 @bymod</a> ——出自 Bootstrap</p>
+</li>
+<li><p><a href="https://google.github.io/styleguide/htmlcssguide.xml" target="_blank" rel="noopener">Google HTML\CSS Style Guid</a> ——出自 Google</p>
+</li>
+<li><p><a href="https://google.github.io/styleguide/javascriptguide.xml" target="_blank" rel="noopener">Google JavaScript Style Guide</a>——出自 Google</p>
+</li>
+<li><p><a href="http://docs.kissyui.com/1.4/docs/html/tutorials/style-guide/index.html" target="_blank" rel="noopener">最佳编码实践 - KISSY v1.4 Documentation</a>—— 出自 阿里 KISSY</p>
+</li>
+</ul>
+<h4 id="网站的优化打包发布"><a href="#网站的优化打包发布" class="headerlink" title="网站的优化打包发布"></a>网站的优化打包发布</h4><p>当我们网站开发完成，本地测试 OK 以后，还要合并压缩静态文件、使用前端镜像库、使用 CDN 进行加速、用 YSlow 或 Google Page Speed 这类的网站质量检测工具来检测线上测试站点。</p>
+<ul>
+<li>合并压缩静态文件：一般为了快捷有节奏的开发网站，对于静态文件 CSS，JS，图片静态资源是尽可能模块化管理，而到了上线阶段，则必须合并压缩 CSS，JS、制作 sprites 图、使用 iconfont。这样处理既减少文件体积，又减少 http 请求。具体压缩和合并方法，使用 Grunt，Gulp，Webpack 等前端自动化工具都有官方的插件来自动完成这项工作。但在前期没有接触到前端自动化构建工具前，可以使用最近微信团队推出的一个前端自动化桌面工具 <a href="https://weflow.io/" target="_blank" rel="noopener">WeFlow</a>。</li>
+<li>使用前端镜像库：对于 jQuery，Bootstrap，这些大多数网站都有可能用到的前端工具资源，不妨使用公共的 CDN 库文件加速，这其中百度，360 这些大的互联网公司都提供的公共库。因为大部分常用网站会缓存这些常用的文件，所以当自己的网站也使用这些公共库文件时，实际是不需要重新请求获取，而是直接从用户的浏览器读取缓存文件。</li>
+<li>使用 CDN 加速：CDN 是内容分发网络，其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。简单的理解就是把网站的静态资源传到提供 CDN 服务的云端，然后在网站中调用这些资源。</li>
+<li>使用 Gzip 或 dfate 加速，这个是在服务器设置，暂时按下不表，等我仔细研究过后端知识再来补充。</li>
+</ul>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>下一篇还在整理中。下篇会提供前端进阶的学习资料，以及思考方向等……</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://blog.ohcat.xyz">夏木</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://blog.ohcat.xyz/2016/06/18/web-development-study-guid(1)/">http://blog.ohcat.xyz/2016/06/18/web-development-study-guid(1)/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/web-html-js-css-grunt-php/">web, html, js, css, grunt, php</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/01/01/web-development-study-guid(2)/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">WEB 前端学习指南（下）</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/03/12/practice-about-react(1)/">
+        <span class="next-text nav-default">React 实践（一）</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">夏木</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

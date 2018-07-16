@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="网页动效详解"/>
+
+
+
+
+  <meta name="keywords" content="动效，canvas ， js 动画, 夏木的专栏" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夏木的专栏">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://blog.ohcat.xyz/2018/03/13/front-end-animation/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 网页动效详解 - 夏木的专栏 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">夏木的专栏</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">夏木的专栏</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          网页动效详解
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-13
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#瞎扯淡"><span class="toc-text">瞎扯淡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#动效作用"><span class="toc-text">动效作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动效实例"><span class="toc-text">动效实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网页动效实现技术方案"><span class="toc-text">网页动效实现技术方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#css"><span class="toc-text">css</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-text">js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#svg-补充"><span class="toc-text">svg(补充)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#canvas-补充"><span class="toc-text">canvas(补充)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webgl-补充"><span class="toc-text">webgl(补充)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动效的物理原理"><span class="toc-text">动效的物理原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#弹簧动画的运动曲线"><span class="toc-text">弹簧动画的运动曲线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟自然世界"><span class="toc-text">模拟自然世界</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动效的数学原理"><span class="toc-text">动效的数学原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#缓动函数"><span class="toc-text">缓动函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动效实现库"><span class="toc-text">动效实现库</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>结合这段时间做小程序跳一跳动画的经验，整理相关的资料，梳理下知识脉络。同时理清那些还没有掌握的知识点，进阶的研究下 其他优秀的动画引擎实现和使用，稍微扩展下 3D 动画，游戏相关内容，篇幅字数 &gt; 5000，图片数 &gt; 10</p>
+<a id="more"></a>
+<h1 id="瞎扯淡"><a href="#瞎扯淡" class="headerlink" title="瞎扯淡"></a>瞎扯淡</h1><p>随着交互设计重要性的提升，动效也越来越被设计师所重视。它不仅仅是取悦用户的工具，而且被视作为改善用户体验的重要手段。从为界面营造氛围的微小动效，到用来沟通用户的视觉线索，动效所解决的问题越来越全面。<br>因此，对于前端开发而言，实现流畅的动效不仅是对技术的考验，也是对审美和思维的刺激。<br>网页动效 - 使网页元素呈现自然的变化。</p>
+<h2 id="动效作用"><a href="#动效作用" class="headerlink" title="动效作用"></a>动效作用</h2><p><a href="http://www.uisdc.com/functional-motion-design-method" target="_blank" rel="noopener">用这4个超实用的方法，做出有价值的功能性动效！</a></p>
+<h2 id="动效实例"><a href="#动效实例" class="headerlink" title="动效实例"></a>动效实例</h2><p>动效的分类非常多：<a href="http://www.uisdc.com/app-design-motion" target="_blank" rel="noopener">超全面！界面交互动效核心知识的分类与总结</a><br><a href="http://www.uisdc.com/product-animation-design-guide" target="_blank" rel="noopener">超全面！产品动效设计全方位科普手册</a></p>
+<h1 id="网页动效实现技术方案"><a href="#网页动效实现技术方案" class="headerlink" title="网页动效实现技术方案"></a>网页动效实现技术方案</h1><p><a href="http://blog.csdn.net/zqjflash/article/details/44903859" target="_blank" rel="noopener">前端能力模型-动画类型及动画库的介绍</a></p>
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><p>transition, animation，逐帧动画，keyframe(关键帧)<br><a href="https://zhuanlan.zhihu.com/p/20844840" target="_blank" rel="noopener">CSS3动画之逐帧动画</a><br><a href="http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html" target="_blank" rel="noopener">CSS动画简介</a></p>
+<ul>
+<li>animation 实例
+<iframe height="265" scrolling="no" title="Watson-Avatar-Purple-v1" src="//codepen.io/xiamu/embed/KzjzpG/?height=265&theme-id=light&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/xiamu/pen/KzjzpG/" target="_blank" rel="noopener">Watson-Avatar-Purple-v1</a> by Ben (<a href="https://codepen.io/xiamu" target="_blank" rel="noopener">@xiamu</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+</li>
+</ul>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>RAF，缓动函数，帧速率<br><a href="http://blog.csdn.net/cwzhsi/article/details/52206575" target="_blank" rel="noopener">高中物理学运动公式实现js动画</a><br><a href="http://djt.qq.com/article/view/1538" target="_blank" rel="noopener">如何让你的动画更自然—— 运动曲线探究与应用</a></p>
+<ul>
+<li>自然的动画
+<iframe height="265" scrolling="no" title="VelocityJS demo" src="//codepen.io/xiamu/embed/MrxejV/?height=265&theme-id=dark&default-tab=js,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/xiamu/pen/MrxejV/" target="_blank" rel="noopener">VelocityJS demo</a> by Ben (<a href="https://codepen.io/xiamu" target="_blank" rel="noopener">@xiamu</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+</li>
+</ul>
+<h2 id="svg-补充"><a href="#svg-补充" class="headerlink" title="svg(补充)"></a>svg(补充)</h2><p><a href="https://aotu.io/notes/2017/01/22/snapsvg/index.html" target="_blank" rel="noopener">使用 Snap.svg 制作动画</a></p>
+<ul>
+<li>矢量动画
+<iframe height="265" scrolling="no" title="SVG Path animated Text" src="//codepen.io/Zaku/embed/ALChE/?height=265&theme-id=light&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/Zaku/pen/ALChE/" target="_blank" rel="noopener">SVG Path animated Text</a> by Tamino Martinius (<a href="https://codepen.io/Zaku" target="_blank" rel="noopener">@Zaku</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h2 id="canvas-补充"><a href="#canvas-补充" class="headerlink" title="canvas(补充)"></a>canvas(补充)</h2><h2 id="webgl-补充"><a href="#webgl-补充" class="headerlink" title="webgl(补充)"></a>webgl(补充)</h2><h1 id="动效的物理原理"><a href="#动效的物理原理" class="headerlink" title="动效的物理原理"></a>动效的物理原理</h1>自然的动画效果应该和现实生活中看到的物体运动轨迹是相似的。这样的效果其物理原理都是运动曲线函数，如小球下落是匀加速函数 :<br>$$<br>s1 = 1/2 <em> g </em> t^2<br>$$<br>如果将空气阻力和接触面材质的影响考虑进来，那么小球的回弹高度可以用下面公式表达：$s2=s1*n$ (0&lt;n&lt;1)。如此循环，直至小球最终停在地上，这样就可以模拟出整个小球掉下的效果。</li>
+</ul>
+<p>现实生活中的运动效果丰富多样，只靠css3提供的几个基本动画函数是不足以模拟的。如果要模拟出真实的效果，就需要理解这些效果背后的运动函数。</p>
+<h3 id="弹簧动画的运动曲线"><a href="#弹簧动画的运动曲线" class="headerlink" title="弹簧动画的运动曲线"></a>弹簧动画的运动曲线</h3><p>现在我们以常见的弹簧动画而例来说明下怎样模拟出这个效果：<br>下面有一个弹簧块，假设它质量为1，在它不动的时候位置是 $x = 1$，则拉伸时的距离就是 $x-1$。</p>
+<p>将这比作一个动画，弹簧块在时间 t 时所处的位置 x 就可以看作动画曲线函数 $x = f(t)$。然后我们求出这个函数的公式，就可以模拟出这个动画效果了。</p>
+<p>关于时间从 0 ~ 1，以及 raf 的应用，最终实现一个弹簧动画。</p>
+<h2 id="模拟自然世界"><a href="#模拟自然世界" class="headerlink" title="模拟自然世界"></a>模拟自然世界</h2><h1 id="动效的数学原理"><a href="#动效的数学原理" class="headerlink" title="动效的数学原理"></a>动效的数学原理</h1><h2 id="缓动函数"><a href="#缓动函数" class="headerlink" title="缓动函数"></a>缓动函数</h2><h1 id="动效实现库"><a href="#动效实现库" class="headerlink" title="动效实现库"></a>动效实现库</h1><p>tween.js，dynamics.js，anime.js，animation.css，velocity.js</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://blog.ohcat.xyz">夏木</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://blog.ohcat.xyz/2018/03/13/front-end-animation/">http://blog.ohcat.xyz/2018/03/13/front-end-animation/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/动效，canvas-，-js-动画/">动效，canvas ， js 动画</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/05/03/make-git-commit-message-specification/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">规范 git commit message</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/02/28/hexo-skill/">
+        <span class="next-text nav-default">hexo-skill</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">夏木</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

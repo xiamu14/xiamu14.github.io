@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="WEB 前端学习指南（下）"/>
+
+
+
+
+  <meta name="keywords" content="html5，css3，js，产品，设计，交互，数据库，git, 夏木的专栏" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夏木的专栏">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://blog.ohcat.xyz/2017/01/01/web-development-study-guid(2)/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> WEB 前端学习指南（下） - 夏木的专栏 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">夏木的专栏</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">夏木的专栏</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          WEB 前端学习指南（下）
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-01-01
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#三驾马车：HTML5-CSS3-JavaScript"><span class="toc-text">三驾马车：HTML5 + CSS3 + JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#理解产品、设计"><span class="toc-text">理解产品、设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端性能和安全"><span class="toc-text">前端性能和安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端流行框架"><span class="toc-text">前端流行框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#React-还是-Vue？"><span class="toc-text">React 还是 Vue？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-函数式编程"><span class="toc-text">JavaScript 函数式编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-和数据库"><span class="toc-text">Linux 和数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码测试"><span class="toc-text">代码测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构建工具"><span class="toc-text">构建工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#协同工作"><span class="toc-text">协同工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文档编写"><span class="toc-text">文档编写</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>与文章的 <a href="http://blog.ohcat.xyz/2016/06/18/WEB%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97%EF%BC%88%E4%B8%8A%EF%BC%89/">上篇</a> 相隔近 6 个月的时间，我才开始整理下篇。这 6 个月来我一直在不间歇地做运营活动的 H5 页面，写了很多重复的代码，做了很多简单的开发。因此，我还谈不上对 16 年的前端技术栈有多么深刻而有意义的解读。在这篇文章里，我没法给出富有创新的代码，我只能罗列出我学习和工作轨迹里所用到的工具与资源。<br><a id="more"></a></p>
+<p>这篇文章的是写给进击的前端学习者，中级的前端开发（这并不意味这篇文章的内容不适合初学者，只是很多内容可能难以顾及初学者触及的深度）。那么我依然从三驾马车开始谈吧！</p>
+<h3 id="三驾马车：HTML5-CSS3-JavaScript"><a href="#三驾马车：HTML5-CSS3-JavaScript" class="headerlink" title="三驾马车：HTML5 + CSS3 + JavaScript"></a>三驾马车：HTML5 + CSS3 + JavaScript</h3><p><strong>HMTL5</strong> 是 HTML 标准的最新演进版本。它是一个新的 HTML 语言版本包含了新的元素，属性和行为，同时包含了一系列可以被用来让 Web 站点和应用更加多样化，功能更强大的技术。从对 Web 开发人员有用这点触发，和基于它们的各自功能，可以将 HTML5 技术的资源归类成若干组：</p>
+<ul>
+<li>语义：能够更恰当的描述网页的内容</li>
+<li>连通性：能够和服务器使用创新的新技术方法进行通信</li>
+<li>离线 &amp; 存储：能够让网页在客户端本地存储以及更高效地离线运行</li>
+<li>多媒体：使 video 和 audio 成为了 Web 中的一等公民</li>
+<li>2D/2D 绘图 &amp; 效果，矢量图：提供更加丰富的呈现选择</li>
+<li>性能 &amp; 集成：提供了非常显著的性能游湖和更有效的计算机硬件使用</li>
+<li>设备访问 Device Access：能够处理各种输入和输出设备</li>
+</ul>
+<p>不可否认，这段解释我摘抄自 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML" target="_blank" rel="noopener">MDN</a>。同时还有这个网页更详细的提供了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/%E6%BC%94%E7%A4%BA%E8%AF%B4%E6%98%8E" target="_blank" rel="noopener">Web 技术示例</a>，MDN 是 Mozilla 维护的技术文档。谷歌也同样提供了 <a href="https://developers.google.cn/web/" target="_blank" rel="noopener">Web 开发的指南</a>，而且 google 提供的是具体的开发更优秀 Web 网页的方法和理论。<br><img src="http://static.ohf2e.com/20170102/Google Web.PNG" alt=""></p>
+<p>我记得在上篇我推荐的 HTML5 参考还是 w3cschool，但现在，我认为它完全过时了，并且毫无创意。它不像 MDN 那样提供完善的技术文档和参考资源，也不会像 google 告诉你如何做出更好的 Web 网页。使用 w3cschool 也许能让你做出一两道小菜，但是使用却不能让你做出满汉全席。</p>
+<p><strong>CSS3</strong> ，在入门后我更关注的是如何使用 less 或 sass 。这样做的目的主要是解决两个问题：</p>
+<ol>
+<li>避免类命名重复</li>
+<li>实现代码的复用</li>
+</ol>
+<p>但是，我想这里除了添加两个官网地址，还可以提到 <a href="http://www.tuicool.com/wx/nAriimy" target="_blank" rel="noopener">CSS Modules</a>。这是一篇详细 CSS Modules 的文章 ，它同样是为了解决上面的两个问题。 </p>
+<p>与此同时，我推荐一本关于 CSS3 的书籍——<a href="https://pan.baidu.com/s/1c2qWXf6" target="_blank" rel="noopener">《css screts》</a>。这本书给出了很多有意思的 CSS 技巧，比如：实现条纹背景，实现各种形状的 DIV 等等，我在上篇文章中有推荐过，但那时没有给出电子书的下载，上面的链接里是中文版的电子书。</p>
+<p>当然，CSS3 里还有更有意思的新的布局方式——flexbox，我依稀记得年初刚接触这个概念的时候，在 <a href="http://caniuse.com/" target="_blank" rel="noopener">Can I Use</a> 上看到它兼容性还只到 70% 哦，但现在已经到 97%。<br><img src="http://static.ohf2e.com/20170102/flexbox.JPG?imageslim" alt=""> 它完全可以取代我们以往使用 position，float 实现的各种布局，而且代码更优雅高效。可惜我还没有找到一本书完整的介绍 flexbox，这里推荐一系列 <a href="http://www.w3cplus.com/css3/going-all-in-on-flexbox.html" target="_blank" rel="noopener">文章</a>，里面虽然介绍了使用和实践案例，但我认为并不系统，只能勉强参考着用。</p>
+<p><strong>JavaScript</strong> 是脚本语言，从 ES6 开始变得更加强大，补充了非常多的新特性。因为我自己也还在学习中，就不讨论更多具体的语法了。但是，我想在经历过 16 年前端圈的快速变化和发展后，作为仍然在努力追赶的前端开发而言，掌握最基础的知识才能够以不变应万变。</p>
+<p>同时，我认为大多数前端开发需要增强的技能是去掌握基于 JavaScript 的开发模式和算法。这里推荐三本书：<br><a href="https://pan.baidu.com/s/1hrZnRYO" target="_blank" rel="noopener">你不知道的 JavaScipt(上卷)</a><br><a href="https://pan.baidu.com/s/1bo8tI5T" target="_blank" rel="noopener">Javascript 设计模式与开发实践</a><br><a href="https://pan.baidu.com/s/1i5E3vXr" target="_blank" rel="noopener">数据结构与算法 Javascript 描述</a></p>
+<h3 id="理解产品、设计"><a href="#理解产品、设计" class="headerlink" title="理解产品、设计"></a>理解产品、设计</h3><p>很多时候，程序员被认为只需要埋头写代码，只要和电脑进行沟通。那么，作为前端也不例外应该更懂 0 和 1。但实际情况可能并非如此，前端要实现的是整个产品最接近用户那一侧，给用户最直观视觉呈现和功能呈现的代码（当然，这里的前端包括了开发 Web，App，和传统的桌面应用）。</p>
+<p>前端首先要理解的就是产品经理给出的那份原型里面的功能逻辑，然后要对用户使用产品的场景和流程达到和产品经理一样的熟练，因为前端需要从原型开始实现产品，任何不合理的需求都会使开发变得异常困难。所以，我认为前端理解产品不仅仅是理解原型，而是对产品从前端代码侧的一种解构（这句话套用到后端和数据工程师，我以为同样受用。任何一个开发都应该理解自己开发的产品。），与产品经理从用户、运营和商业等多维角度解构，重构产品是一种补充的关系。</p>
+<p>而 “理解设计” 就是为了按照设计 1 像素还原（有些设计稿可能无法完美实现，这就是要在定稿之前避免的）。我稍微想了下这几个问题：</p>
+<ol>
+<li>理解设计的哪些部分？配色方案，整体布局，文案。</li>
+<li>如何理解设计里的变化？自适应设计、响应式设计都是变化的设计。要在变化的屏幕设备里实现设计稿，那么前端就必须理解设计里变化的部分。</li>
+<li>如何理解设计里的动态？这个指的就是 “交互” 嘛，我强行归纳到设计里了。</li>
+</ol>
+<p>好吧，这个命题对我而言稍微有点强人所难，其实我也正在努力学习这些，这里就只能放一些我正在关注的网站和博客了：<br><a href="https://meia.me/index.html" target="_blank" rel="noopener">美啊网</a><br><a href="http://www.uigreat.com/" target="_blank" rel="noopener">UIGREAT</a><br><a href="http://iconmoon.com/blog2/" target="_blank" rel="noopener">图月志</a></p>
+<h3 id="前端性能和安全"><a href="#前端性能和安全" class="headerlink" title="前端性能和安全"></a>前端性能和安全</h3><p>前端的性能和安全是两个大命题，这里只能提及一二。一是我自己也要注意这方面知识和经验的积累，二是希望同样学习的前端伙伴们能够注意到这些。</p>
+<p>前端的性能无疑是在开发过程中就要时刻注意和留心，但是性能的优化也是随着产品的复杂度才会变的重要。所以，一开始能够避开那些影响性能的地方应该就可以了。这里列出几篇文章，即提及了如何分析网页性能也给出了性能优化的方案：<br><a href="https://segmentfault.com/a/1190000005089412" target="_blank" rel="noopener">那些年我们用过的显示性能指标</a><br><a href="http://web.jobbole.com/85951/" target="_blank" rel="noopener">无线性能优化：Composite</a><br><a href="https://segmentfault.com/a/1190000007317481" target="_blank" rel="noopener">web 性能优化之：no-cache 与 must-revalidate 深入探究</a><br><a href="http://www.infoq.com/cn/articles/javascript-high-performance-animation-and-page-rendering" target="_blank" rel="noopener">Javascript 高性能动画与页面渲染</a><br><a href="https://pan.baidu.com/s/1qYVkd3m" target="_blank" rel="noopener">HTTP 权威指南</a><br><a href="https://pan.baidu.com/s/1bpzMz99" target="_blank" rel="noopener">Web 性能权威指南</a><br><a href="https://pan.baidu.com/s/1jIBJ1zw" target="_blank" rel="noopener">图解 HTTP</a></p>
+<p>前端的安全比起性能更是要时刻注意的。然而，因为我一直没有在实际开发中深入的接触如何使前端更安全，最多就是避免常见的 xss 攻击，过滤用户输入信息等，但这一部分却是我认为极为重要的，保证网站的安全是对企业和用户必须承担的责任。<br>这里我暂时只能提供下面这本电子书：<br><a href="https://pan.baidu.com/s/1boLkXWV" target="_blank" rel="noopener">Web 前端黑客技术揭秘</a></p>
+<h3 id="前端流行框架"><a href="#前端流行框架" class="headerlink" title="前端流行框架"></a>前端流行框架</h3><h4 id="React-还是-Vue？"><a href="#React-还是-Vue？" class="headerlink" title="React 还是 Vue？"></a>React 还是 Vue？</h4><p>坦白说，就目前而言，我并没有使用过 React 或 Vue 框架完成过项目。实际上，这两也不能称为框架，React 自己都说过它只是 MVC 中的 view。真正称的上前端框架的是 Augular、backbone 等。但是无论如何还是要选择一个，因为前端入门都快要求要懂 React 或 Vue,Augular 了。</p>
+<p>从学习曲线上看，Vue 会比很多框架都要容易一些。首先，它的主要开发是尤雨溪（微博 ID：尤小右），所以中文文档完善（当然很多其他语言的文档也都有）；其次，Vue 比起 React,Augular 更容易理解。所以，可以先从 Vue 入门学习实践一些项目。</p>
+<p>但最好也学一下 React。<br>……<br>果然，书到用时方恨少。</p>
+<h3 id="JavaScript-函数式编程"><a href="#JavaScript-函数式编程" class="headerlink" title="JavaScript 函数式编程"></a>JavaScript 函数式编程</h3><p>暂时不会，以后再说。但是，听说很火的概念。有空可以了解下，因为 React 底层好像用了大量的函数式编程的思想。</p>
+<h3 id="Linux-和数据库"><a href="#Linux-和数据库" class="headerlink" title="Linux 和数据库"></a>Linux 和数据库</h3><p>我在上篇提及了 BAE，SAE 这类 sass 可以快速部署网站应用，但实际上这样的局限很大， 并不利于前端全面认识服务器和后端语言的面貌。所以，当学有余力，不妨自己在 linux 上搭建真实的服务器环境。<br><a href="https://virtualboxes.org/images/ubuntu-server/" target="_blank" rel="noopener">linux 虚拟机镜像下载</a><br>其实在虚拟机中搭建服务器环境或者购买 阿里云，腾讯云主机服务都可以，关键是自己动手实践能够对服务器环境有所认识。</p>
+<p><strong>数据库</strong> 是数据存储的地方，很多时候前端要理解后端接口，要根据数据库表的设计才能够理解。因此，我也自己尝试使用 mysql 和 MongoDB 写过小网站。但这部分我也研究不深，仅仅是到了通过文档能够理解数据库的读写改查。下面提供一本 MongogDB 的电子书，而 mysql 的资料目前实在寥若寒星。<br><a href="https://pan.baidu.com/s/1bpaeauz" target="_blank" rel="noopener">MongoDB 实战</a></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>最后再补充一些关于编码规范、代码测试、构建工具、协同工作、文档编写的内容。因为这部分需要懂得但不是前端的核心竞争力量（我自己的看法而已，我认为前端的核心竞争力是开篇头三节内容）</p>
+<h4 id="代码测试"><a href="#代码测试" class="headerlink" title="代码测试"></a>代码测试</h4><p>因为上篇有提及编码规范，也基本没有需要补充的，故不再单列一小节来讲了。关于代码测试，这部分我也使用不多，但是我觉得当开发复杂度高到如果 native app 的时候，代码能够自测肯定能起到事半功倍的效果。但是，目前前端圈对代码测试的要求似乎并不高。这里我只提供一些文章参考：<br><a href="http://www.jianshu.com/p/d079b9c61450" target="_blank" rel="noopener">(译) 学习如何构建自动化、跨浏览器的 JavaScript 单元测试</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzI1NDA5ODE1NQ==&amp;mid=2650432733&amp;idx=1&amp;sn=1a2042220774c2bbb70b8ed92a5d1b91" target="_blank" rel="noopener">前端可视化的测试实践</a><br><a href="https://segmentfault.com/a/1190000005090444" target="_blank" rel="noopener">【持续集成你的项目】为你的项目创建自动化测试和代码覆盖率测试</a></p>
+<h4 id="构建工具"><a href="#构建工具" class="headerlink" title="构建工具"></a>构建工具</h4><p>目前 grunt 应该是会被淘汰的了，至于 gulp、webpack 或者 rollup 谁会成为前端构建工具的老大还不好说。目前我使用了 gulp 重新整理了公司项目的构建流程，具体实现可以参考 <a href="http://blog.ohcat.xyz/2016/12/29/%E6%88%91%E7%9A%84%20gulp%20%E5%B7%A5%E5%85%B7%E9%9B%86/">这篇文章</a>。</p>
+<p>其实，能够深入理解某个构建工具并独立编写过针对具体项目的工具集以后，就可以驾驭大多数构建工具了。</p>
+<h4 id="协同工作"><a href="#协同工作" class="headerlink" title="协同工作"></a>协同工作</h4><p>这部分我想将的是对版本管理和沟通交流的内容。我所接触到使用的版本管理工具是 git 和 svn，我想这部分只要多使用就会熟悉的，当然也要一定的理解，这里推荐一本 git 的书籍:<br><a href="https://pan.baidu.com/s/1gfaBOQZ" target="_blank" rel="noopener">Git 权威指南</a></p>
+<p>记住要和设计，后端保持愉快的沟通交流。不要再认为前端只要写好代码、做个死宅就行了，前端简直如果桥梁一般，连接了产品各个层面的工作人员。</p>
+<h4 id="文档编写"><a href="#文档编写" class="headerlink" title="文档编写"></a>文档编写</h4><p>最后的最后强调一遍，程序员要会写文档，前端程序员要会写好看又好用的文档。至于具体怎么写，用 markdown 就可以了。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://blog.ohcat.xyz">夏木</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://blog.ohcat.xyz/2017/01/01/web-development-study-guid(2)/">http://blog.ohcat.xyz/2017/01/01/web-development-study-guid(2)/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/html5，css3，js，产品，设计，交互，数据库，git/">html5，css3，js，产品，设计，交互，数据库，git</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/12/12/async-await-tutorial/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">async/await 应用手札</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/06/18/web-development-study-guid(1)/">
+        <span class="next-text nav-default">WEB 前端学习指南（上）</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">夏木</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

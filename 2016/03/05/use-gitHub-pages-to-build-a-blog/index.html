@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="使用Github Page搭建轻博客"/>
+
+
+
+
+  <meta name="keywords" content="Github Hexo, 夏木的专栏" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夏木的专栏">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://blog.ohcat.xyz/2016/03/05/use-gitHub-pages-to-build-a-blog/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 使用Github Page搭建轻博客 - 夏木的专栏 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">夏木的专栏</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">夏木的专栏</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          使用Github Page搭建轻博客
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-03-05
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择-Github-Page"><span class="toc-text">选择 Github Page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装准备软件"><span class="toc-text">安装准备软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-Github-Page-建立博客"><span class="toc-text">使用 Github Page 建立博客</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-在-Github-上建立仓库："><span class="toc-text">1. 在 Github 上建立仓库：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-填写项目信息"><span class="toc-text">2. 填写项目信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-点击「Create-Repository」-完成创建。"><span class="toc-text">3. 点击「Create Repository」 完成创建。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装、配置、使用-Hexo"><span class="toc-text">安装、配置、使用 Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装-Hexo"><span class="toc-text">1. 安装 Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-部署-Hexo"><span class="toc-text">2. 部署 Hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-关联-Github-Page"><span class="toc-text"> hexo  关联 Github Page</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p><a href="https://pages.github.com/" target="_blank" rel="noopener">Github Page</a> 是 Github 提供的静态网站系统，而Hexo则是轻量级的博客框架。两者的组合可以很方便的搭建起自己的博客网站，并更新文章。<br><a id="more"></a></p>
+<h2 id="选择-Github-Page"><a href="#选择-Github-Page" class="headerlink" title="选择 Github Page"></a>选择 Github Page</h2><p> Github Page 有什么特点</p>
+<ul>
+<li>配置简单</li>
+<li>无需自己搭建服务器，无需购买域名</li>
+<li>使用标记语言，比如 Markdown</li>
+<li>Github 限制每个站点只有 300M 空间，因为 Github 提供 Github Page 服务本意是提供一个能快速搭建更新的静态网站给用户介绍自己的项目</li>
+<li>评论和分享等可以使用插件实现</li>
+</ul>
+<h2 id="安装准备软件"><a href="#安装准备软件" class="headerlink" title="安装准备软件"></a>安装准备软件</h2><p>本机使用 window 10 操作系统，所有软件安装都是在 window 系统下。首先安装如下软件：</p>
+<ul>
+<li>git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></li>
+<li>node.js <a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a></li>
+</ul>
+<h2 id="使用-Github-Page-建立博客"><a href="#使用-Github-Page-建立博客" class="headerlink" title="使用 Github Page 建立博客"></a>使用 Github Page 建立博客</h2><p>在 Github 上注册账号，然后使用 Github Page 建立博客。<br>GitHub Pages 分两种，一种是使用 GitHub 用户名建立的 username.github.io 这样的用户&amp;组织页（站），另一种是依附项目的 pages。<br>建立个人博客是用的第一种，建立域名为 username.github.io 的站点。</p>
+<h4 id="1-在-Github-上建立仓库："><a href="#1-在-Github-上建立仓库：" class="headerlink" title="1. 在 Github 上建立仓库："></a>1. 在 Github 上建立仓库：</h4><p>登录 Github，在 Github 首页，点击页面右下角「New」</p>
+<p><img src="http://7xifdy.com1.z0.glb.clouddn.com/hexo/1/1.png" alt="1.png"></p>
+<h4 id="2-填写项目信息"><a href="#2-填写项目信息" class="headerlink" title="2. 填写项目信息"></a>2. 填写项目信息</h4><p><strong>project name：</strong> username.github.io<br><strong>description：</strong> introduce your blog<br>注：Github Pages 的 Repository 必须使用 Github 的账户名。</p>
+<h4 id="3-点击「Create-Repository」-完成创建。"><a href="#3-点击「Create-Repository」-完成创建。" class="headerlink" title="3. 点击「Create Repository」 完成创建。"></a>3. 点击「Create Repository」 完成创建。</h4><p><img src="http://7xifdy.com1.z0.glb.clouddn.com/hexo/1/2.png" alt="2.png"></p>
+<h2 id="安装、配置、使用-Hexo"><a href="#安装、配置、使用-Hexo" class="headerlink" title="安装、配置、使用 Hexo"></a>安装、配置、使用 Hexo</h2><h4 id="1-安装-Hexo"><a href="#1-安装-Hexo" class="headerlink" title="1. 安装 Hexo"></a>1. 安装 Hexo</h4><p>打开 Git Bash, 使用 npm 安装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>因为 npm 在国内不好用的原因，所有建议使用淘宝的源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo disturl=http://registry.npm.taobao.org/mirrors/node --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
+<p>在这一过程遇到的其他问题可以参阅这篇文章 <a href="http://chitanda.me/2015/06/11/tips-for-setup-hexo/" target="_blank" rel="noopener">hexo博客搭建时遇到的一些问题</a></p>
+<h4 id="2-部署-Hexo"><a href="#2-部署-Hexo" class="headerlink" title="2. 部署 Hexo"></a>2. 部署 Hexo</h4><p>新建一个 <strong> hexo </strong> 文件夹，在 Git Bash 中进入 <strong>hexo</strong>文件夹，使用下面命令初始化 Hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<p>Hexo 随后会自动在目标文件夹创建网站的所有文件。<br>目前，已经搭建起本地的 hexo 博客，执行以下命令，然后到浏览器输入 localhost:4000 就可以看到自己的博客网站了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>更多 hexo 命令和使用可以参看 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo 官网</a></p>
+<h2 id="hexo-关联-Github-Page"><a href="#hexo-关联-Github-Page" class="headerlink" title=" hexo  关联 Github Page"></a><strong> hexo </strong> 关联 Github Page</h2><p>在 <strong>hexo</strong> 文件夹的根目录下找到 _config.yml ，并打开。 在配置文件的中找到 <strong>deploy</strong>配置项，配置内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:username/username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>注意修改仓库地址中的 username</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://blog.ohcat.xyz">夏木</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://blog.ohcat.xyz/2016/03/05/use-gitHub-pages-to-build-a-blog/">http://blog.ohcat.xyz/2016/03/05/use-gitHub-pages-to-build-a-blog/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Github-Hexo/">Github Hexo</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/03/12/practice-about-react(1)/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">React 实践（一）</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">夏木</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

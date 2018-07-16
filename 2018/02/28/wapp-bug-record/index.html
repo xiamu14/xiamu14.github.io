@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="小程序开发经验(一)"/>
+
+
+
+
+  <meta name="keywords" content="小程序，bug, 夏木的专栏" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夏木的专栏">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://blog.ohcat.xyz/2018/02/28/wapp-bug-record/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 小程序开发经验(一) - 夏木的专栏 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">夏木的专栏</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">夏木的专栏</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          小程序开发经验(一)
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-02-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小程序开发经验"><span class="toc-text">小程序开发经验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hidden-无效"><span class="toc-text">hidden 无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#canvas、textarea、video层级最高"><span class="toc-text">canvas、textarea、video层级最高</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么-canvas、textarea、video-层级最高？"><span class="toc-text">为什么 canvas、textarea、video 层级最高？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对前端造成的困惑："><span class="toc-text">对前端造成的困惑：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案："><span class="toc-text">解决方案：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>小程序跳坑指南☂️<br><a id="more"></a></p>
+<h1 id="小程序开发经验"><a href="#小程序开发经验" class="headerlink" title="小程序开发经验"></a>小程序开发经验</h1><h2 id="hidden-无效"><a href="#hidden-无效" class="headerlink" title="hidden 无效"></a>hidden 无效</h2><p>因为 <code>hidden</code> 属性其实是使用 <code>display:none</code> 来隐藏的，当添加了 hidden 属性的元素同时在 wxss 中添加了 <code>display:flex</code> 等就会无效。解决方案：可以通过控制 class 来显示隐藏。</p>
+<h2 id="canvas、textarea、video层级最高"><a href="#canvas、textarea、video层级最高" class="headerlink" title="canvas、textarea、video层级最高"></a>canvas、textarea、video层级最高</h2><h3 id="为什么-canvas、textarea、video-层级最高？"><a href="#为什么-canvas、textarea、video-层级最高？" class="headerlink" title="为什么 canvas、textarea、video 层级最高？"></a>为什么 canvas、textarea、video 层级最高？</h3><p>—— ”小程序视图层仍然依赖于Webview，只有部分组件是原生组件，用来解决Mobile Web体验问题。目前原生组件包括：input，textarea，video，map，canvas。<br>tip: input 组件是一个 native 组件，字体是系统字体，所以无法设置 font-family；<br>tip: textarea 组件是由客户端创建的原生组件，它的层级是最高的。<br>tip: video 组件是由客户端创建的原生组件，它的层级是最高的。<br>tip: map 组件是由客户端创建的原生组件，它的层级是最高的。<br>tip: canvas 组件是由客户端创建的原生组件，它的层级是最高的。<br>而其它组件都是基于Web Component规范实现的Custom Element，而诸如picker弹出选择器行为，navigator跳转行为，都是基于微信原生提供的能力，理解为调用wx.xxxApi”</p>
+<h3 id="对前端造成的困惑："><a href="#对前端造成的困惑：" class="headerlink" title="对前端造成的困惑："></a>对前端造成的困惑：</h3><p>无法使用 z-index 控制层级显示</p>
+<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>使用 hidden 属性控制隐藏显示</p>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><p><a href="http://www.wxapp-union.com/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=3" target="_blank" rel="noopener">小程序社区</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://blog.ohcat.xyz">夏木</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://blog.ohcat.xyz/2018/02/28/wapp-bug-record/">http://blog.ohcat.xyz/2018/02/28/wapp-bug-record/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/小程序，bug/">小程序，bug</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/02/28/hexo-skill/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">hexo-skill</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/12/12/async-await-tutorial/">
+        <span class="next-text nav-default">async/await 应用手札</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">夏木</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
