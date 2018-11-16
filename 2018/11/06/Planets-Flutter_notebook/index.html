@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Planets-Flutter_notebook"/>
+
+
+
+
+  <meta name="keywords" content="flutter,dart, 夏木的专栏" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夏木的专栏">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://blog.ohcat.xyz/2018/11/06/Planets-Flutter_notebook/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> Planets-Flutter_notebook - 夏木的专栏 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">夏木的专栏</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">夏木的专栏</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Planets-Flutter_notebook
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-06
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-MediaQuery-适配刘海屏"><span class="toc-text">使用 MediaQuery 适配刘海屏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现背景渐变"><span class="toc-text">实现背景渐变</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>Planets-Flutter 开发知识整理<br><a id="more"></a></p>
+<h2 id="使用-MediaQuery-适配刘海屏"><a href="#使用-MediaQuery-适配刘海屏" class="headerlink" title="使用 MediaQuery 适配刘海屏"></a>使用 MediaQuery 适配刘海屏</h2><p>MediaQuery 保存了关于设备屏幕的数据，包含设备像素比、屏幕宽高等信息。代码示例：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MediaQueryData queryData;</span><br><span class="line">queryData = MediaQuery.of(context);</span><br><span class="line"><span class="built_in">print</span>(queryData);</span><br><span class="line"><span class="comment">// queryData.devicePixelRatio</span></span><br><span class="line"><span class="comment">// queryData.size.width</span></span><br><span class="line"><span class="comment">// queryData.size.height</span></span><br><span class="line"><span class="comment">// queryData.textScaleFactor</span></span><br><span class="line"><span class="comment">// queryData.padding.top</span></span><br></pre></td></tr></table></figure>
+<p>现在在 iphone x simulator 查看如下代码的实现:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GradientAppBar</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> title;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">double</span> barHeight = <span class="number">66.0</span>;</span><br><span class="line"></span><br><span class="line">  GradientAppBar(<span class="keyword">this</span>.title);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="built_in">double</span> statusBarHeight = MediaQuery <span class="comment">// <span class="doctag">NOTE:</span>适配 ios 刘海</span></span><br><span class="line">            .of(context)</span><br><span class="line">        .padding</span><br><span class="line">        .top;</span><br><span class="line">    MediaQueryData queryData;</span><br><span class="line">    queryData = MediaQuery.of(context);</span><br><span class="line">    <span class="built_in">print</span>(queryData);</span><br><span class="line">    <span class="keyword">return</span> Container(</span><br><span class="line">      <span class="comment">// padding: EdgeInsets.only(top: statusBarHeight),</span></span><br><span class="line">      <span class="comment">// height: barHeight + statusBarHeight,</span></span><br><span class="line">      height: barHeight,</span><br><span class="line">      decoration: BoxDecoration(</span><br><span class="line">        gradient: LinearGradient(</span><br><span class="line">          <span class="comment">// <span class="doctag">NOTE:</span>渐变</span></span><br><span class="line">          colors: &lt;Color&gt;[</span><br><span class="line">            Color(<span class="number">0xFF3366FF</span>),</span><br><span class="line">            Color(<span class="number">0xFF00CCFF</span>),</span><br><span class="line">          ],</span><br><span class="line">          begin: FractionalOffset(<span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">          end: FractionalOffset(<span class="number">1.0</span>, <span class="number">1.0</span>),</span><br><span class="line">          stops: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">          tileMode: TileMode.clamp,</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">      child: Center(</span><br><span class="line">        child: Text(</span><br><span class="line">          title,</span><br><span class="line">          style: TextStyle(</span><br><span class="line">            color: Colors.white,</span><br><span class="line">            fontFamily: <span class="string">'Poppins'</span>,</span><br><span class="line">            fontWeight: FontWeight.w600,</span><br><span class="line">            fontSize: <span class="number">36.0</span>,</span><br><span class="line">          ),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现效果如下图：<img src="http://static.ohcat.xyz/1-1-png%282018-11-16T07:53:17+08:00%29.png" alt=""></p>
+<p>那么适配刘海屏，只需要顶部留出刘海屏高度的 padding 即可，代码如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">padding: EdgeInsets.only(top: statusBarHeight),</span><br><span class="line">height: barHeight + statusBarHeight,</span><br></pre></td></tr></table></figure>
+<p>因为 Container 设置了 height 以后，不会随 padding 而增加高度，所以 height 也必须增加 statusBarHeight。效果如下图：<img src="http://static.ohcat.xyz/1-2-png%282018-11-16T08:06:53+08:00%29.png" alt=""></p>
+<h2 id="实现背景渐变"><a href="#实现背景渐变" class="headerlink" title="实现背景渐变"></a>实现背景渐变</h2><p>代码如下：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">decoration: BoxDecoration(</span><br><span class="line">    gradient: LinearGradient(</span><br><span class="line">        <span class="comment">// <span class="doctag">NOTE:</span>渐变</span></span><br><span class="line">        colors: &lt;Color&gt;[</span><br><span class="line">        Color(<span class="number">0xFF3366FF</span>),</span><br><span class="line">        Color(<span class="number">0xFF00CCFF</span>),</span><br><span class="line">        ],</span><br><span class="line">        begin: FractionalOffset(<span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">        end: FractionalOffset(<span class="number">1.0</span>, <span class="number">1.0</span>),</span><br><span class="line">        stops: [<span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">        tileMode: TileMode.clamp,</span><br><span class="line">    ),</span><br><span class="line">),</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://blog.ohcat.xyz">夏木</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://blog.ohcat.xyz/2018/11/06/Planets-Flutter_notebook/">http://blog.ohcat.xyz/2018/11/06/Planets-Flutter_notebook/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/flutter-dart/">flutter,dart</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/07/16/Rxjs-from-entry-to-give-up/">
+        <span class="next-text nav-default">RxJS 从入门到放弃</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">夏木</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

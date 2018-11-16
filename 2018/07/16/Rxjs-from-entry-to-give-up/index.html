@@ -177,7 +177,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hello-world"><span class="toc-text">hello world</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正确理解官方文档的示例"><span class="toc-text">正确理解官方文档的示例</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hello-world"><span class="toc-text">hello world</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正确理解官方文档的示例"><span class="toc-text">正确理解官方文档的示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Observable-and-Observer"><span class="toc-text">Observable and Observer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作符"><span class="toc-text">操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#操作符分类"><span class="toc-text">操作符分类</span></a></li></ol></li></ol>
     </div>
   </div>
 
@@ -199,8 +199,6 @@
 <li><p>添加 index.html</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"todo-val"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"src/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<ol start="6">
 <li><p>添加 main.js , 复制文档上的示例代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Rx <span class="keyword">from</span> <span class="string">'rxjs/Rx'</span>;</span><br><span class="line"></span><br><span class="line">Rx.Observable.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
 </li>
@@ -220,7 +218,12 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">of</span> &#125; <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">of</span>$ = <span class="keyword">of</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">of</span>$.subscribe(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>运行后查看浏览器：</p>
 <p><img src="http://static.ohcat.xyz/xnip2018-07-16-08-18-02-jpg%282018-07-16T08:18:13+08:00%29.jpg" alt=""></p>
-
+<h2 id="Observable-and-Observer"><a href="#Observable-and-Observer" class="headerlink" title="Observable and Observer"></a>Observable and Observer</h2><p>Observable 是可观察对象，Observer 是观察者。Observable 可以分为 Hot Observable 和 Cold Observable ，两者的区别在于 Observer 是否能够接受到已经错过的数据。</p>
+<ul>
+<li>Hot Observable 使 Observer 可以获得在它观察之前 Observable 产生的数据。</li>
+<li>Cold Observable 只能使  Observer 获得观察那一刻开始以后 Observable 产生的数据。<br>Observer 必须包含 next 处理函数，可以包含 complete 函数来处理结束，error 函数来处理异常。</li>
+</ul>
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><h3 id="操作符分类"><a href="#操作符分类" class="headerlink" title="操作符分类"></a>操作符分类</h3>
       
     </div>
 
@@ -262,6 +265,12 @@
         
         
   <nav class="post-nav">
+    
+      <a class="prev" href="/2018/11/06/Planets-Flutter_notebook/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Planets-Flutter_notebook</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
     
     
       <a class="next" href="/2018/05/03/make-git-commit-message-specification/">
