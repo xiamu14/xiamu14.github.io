@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Typescript 之二叉搜索树"/>
+
+
+
+
+  <meta name="keywords" content="typescript、algorithm, 夏木的专栏" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夏木的专栏">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://blog.ohcat.xyz/2019/06/04/typescript-binary-search-tree/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> Typescript 之二叉搜索树 - 夏木的专栏 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">夏木的专栏</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">夏木的专栏</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Typescript 之二叉搜索树
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-06-04
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Typescript-类型检查和提示"><span class="toc-text">Typescript 类型检查和提示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于二叉搜索树"><span class="toc-text">关于二叉搜索树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树节点类"><span class="toc-text">二叉树节点类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现二叉搜索树类"><span class="toc-text">实现二叉搜索树类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用二叉搜索树类"><span class="toc-text">使用二叉搜索树类</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>探索 Typescript 静态类型检查和类型提示的最佳实践方案<br><a id="more"></a></p>
+<h2 id="Typescript-类型检查和提示"><a href="#Typescript-类型检查和提示" class="headerlink" title="Typescript 类型检查和提示"></a>Typescript 类型检查和提示</h2><p>当编程模式越来越趋近于操作数据，而非操作对象的时候，静态类型检查和类型提示的能力就显得尤为重要。这篇文章记录使用 Typescript 提高开发和维护过程中类型检查和提示的过程，文章将实现二拆搜索树的部分功能，同时 dart 语言的实现代码(因为正在学习 flutter 的缘故)。</p>
+<h2 id="关于二叉搜索树"><a href="#关于二叉搜索树" class="headerlink" title="关于二叉搜索树"></a>关于二叉搜索树</h2><p>树一种数据结构，它的特点是使用根节点(根部)，内部节点(枝干)，子节点(叶)来存储数据。如下图所示：<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/1920px-Binary_tree.svg.png" alt="二叉树"><br>树名词释义：</p>
+<ul>
+<li>根节点(root)：没有父节点，处于树的最上层的节点</li>
+<li>内部节点：至少有一个子节点的节点</li>
+<li>叶子节点：没有子节点的节点</li>
+<li>节点深度：该节点祖先节点的数量</li>
+<li>树高度：所有节点深度的最大值</li>
+</ul>
+<p>二叉树是树的一种，它要求每个节点最多只能有两个子节点。</p>
+<p>二叉搜索树(BST)是二叉树的一种，但是它要求在左侧节点存储比父节点小的值，在右侧节点存储比父节点大的值。</p>
+<h2 id="二叉树节点类"><a href="#二叉树节点类" class="headerlink" title="二叉树节点类"></a>二叉树节点类</h2><p>二叉树节点类包含四个重要属性：key - 关键值 ；entity - 数据实体 ；left - 左节点指针；right - 右节点指针。<br>key - 关键值用于排序，一般是数据实体的数值类型的特征值。</p>
+<p>因此下面代码中 TreeNode 传入泛型 T 必须包含 key 关键值【泛型 T 继承包含 key 关键值的接口 Ikey】。</p>
+<p>而数据实体 entity 的类型除了必须包含 key 以外，其余数据由外部定义，所以使用泛型 T 声明 entity。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> IKey &#123;</span><br><span class="line">  key: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> TreeNode&lt;T <span class="keyword">extends</span> IKey&gt; &#123;</span><br><span class="line">  left: <span class="literal">null</span> | TreeNode&lt;T&gt;; <span class="comment">// left 可能是 null , 也可能是 TreeNode&lt;T&gt;</span></span><br><span class="line">  right: <span class="literal">null</span> | TreeNode&lt;T&gt;;</span><br><span class="line">  key: <span class="built_in">number</span>;</span><br><span class="line">  entity: T;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">entity: T</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.key = entity.key;</span><br><span class="line">    <span class="keyword">this</span>.entity = entity;</span><br><span class="line">    <span class="keyword">this</span>.left = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.right = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现二叉搜索树类"><a href="#实现二叉搜索树类" class="headerlink" title="实现二叉搜索树类"></a>实现二叉搜索树类</h2><p>实现将数据插入二叉搜索树中的类函数 inset。</p>
+<p>BinarySearchTree 传入泛型和 TreeNode 一致，继承 Ikey。</p>
+<p>insert 函数需要从根节点开始查询，按照左节点小于右节点的规律寻找新节点的位置。构建一个私有函数用于 insertNode 轮询。因为 insertNode 是只在类中使用，不需要暴露到外部的。</p>
+<p>观察下面代码，可以总结出 typescript 类型使用规律：</p>
+<ol>
+<li>节点类型 null | TreeNode<t> ，所以调用节点时必须判断节点不为 null，否则类型提示错误。</t></li>
+<li>添加了类型声明的变量在使用时有明确的提示包含那些值，书写错误时会报错。</li>
+</ol>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> BinarySearchTree&lt;T <span class="keyword">extends</span> IKey&gt; &#123;</span><br><span class="line">  root: <span class="literal">null</span> | TreeNode&lt;T&gt;;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.root = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  insert(entity: T) &#123;</span><br><span class="line">    <span class="keyword">const</span> newNode = <span class="keyword">new</span> TreeNode&lt;T&gt;(entity);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.root === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.root = newNode;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.insertNode(<span class="keyword">this</span>.root, newNode);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">private</span> insertNode(node: TreeNode&lt;T&gt;, newNode: TreeNode&lt;T&gt;) &#123;</span><br><span class="line">    <span class="keyword">if</span> (newNode.key &lt; node.key) &#123;</span><br><span class="line">      <span class="keyword">if</span> (node.left === <span class="literal">null</span>) &#123;</span><br><span class="line">        node.left = newNode;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.insertNode(node.left, newNode);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (node.right === <span class="literal">null</span>) &#123;</span><br><span class="line">        node.right = newNode;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.insertNode(node.right, newNode);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用二叉搜索树类"><a href="#使用二叉搜索树类" class="headerlink" title="使用二叉搜索树类"></a>使用二叉搜索树类</h2><p>定义水果 fruit 类型，包含 key 关键值(等于水果甜度)。<br>定义常量 fruitSweetness 是 二叉搜索树 BinarySearchTree 的实例，传入类型变量 fruit。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/********** 应用场景 ***********/</span></span><br><span class="line"><span class="keyword">type</span> fruit = &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * @type &#123;string&#125; name 名称</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * @type &#123;number&#125; sweetness 甜度</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  sweetness: <span class="built_in">number</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * @type &#123;number&#125; 键</span></span><br><span class="line"><span class="comment">   * @desc 用于二叉搜索树时的排序值，值等于 sweetness</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  key: <span class="built_in">number</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fruitSweetness = <span class="keyword">new</span> BinarySearchTree&lt;fruit&gt;();</span><br><span class="line"></span><br><span class="line">fruitSweetness.insert(&#123; name: <span class="string">"西瓜"</span>, sweetness: <span class="number">100</span>, key: <span class="number">100</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://blog.ohcat.xyz">夏木</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://blog.ohcat.xyz/2019/06/04/typescript-binary-search-tree/">http://blog.ohcat.xyz/2019/06/04/typescript-binary-search-tree/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/typescript、algorithm/">typescript、algorithm</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2019/02/24/creating-a-graphql-servers/">
+        <span class="next-text nav-default">搭建 GraphQL Server (一)</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">夏木</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
